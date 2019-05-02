@@ -17,7 +17,7 @@ _fzf_complete_gco() {
 }
 
 _fzf_complete_gco_post() {
-    cut -c 3- | awk '{print $1}' | sed "s|remotes/[^/]*/||"
+    cut -c 4- | awk '{print $1}' | sed "s|remotes/[^/]*/||"
 }
 
 _fzf_complete_grh() {
@@ -27,7 +27,7 @@ _fzf_complete_grh() {
 }
 
 _fzf_complete_grh_post() {
-    awk '{print $2}'
+    cut -c 4-
 }
 
 _fzf_complete_gd() {
@@ -37,7 +37,7 @@ _fzf_complete_gd() {
 }
 
 _fzf_complete_gd_post() {
-    awk '{print $2}'
+    cut -c 4-
 }
 
 _fzf_complete_gdca() {
@@ -47,5 +47,5 @@ _fzf_complete_gdca() {
 }
 
 _fzf_complete_gdca_post() {
-    awk '{print $2}'
+    cut -c 4-
 }
