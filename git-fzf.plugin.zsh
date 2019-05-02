@@ -11,8 +11,8 @@ _fzf_complete_ga_post() {
 _fzf_complete_gco() {
     _fzf_complete "--multi" "$@" < <(
         git status -s | awk '/^.\S/'
-        git branch --all --sort=-committerdate | sed 's/\(..\)/ \1/'
-        git tag | sed 's/\(..\)/ t \1/'
+        git branch --all --sort=-committerdate | sed 's/^/ /'
+        git tag | sed 's/^/ t /'
     )
 }
 
