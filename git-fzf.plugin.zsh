@@ -11,13 +11,13 @@ _fzf_complete_ga_post() {
 _fzf_complete_gco() {
     _fzf_complete "--multi" "$@" < <(
         git status -s | awk '/^.\S/'
-        git branch --all --sort=-committerdate | sed 's/^/ /'
-        git tag | sed 's/^/ t /'
+        git branch --all --sort=-committerdate | sed 's|^| |'
+        git tag | sed 's|^| t |'
     )
 }
 
 _fzf_complete_gco_post() {
-    sed "s/.* //" | sed "s#remotes/[^/]*/##"
+    sed "s|.* ||" | sed "s|remotes/[^/]*/||"
 }
 
 _fzf_complete_grh() {
