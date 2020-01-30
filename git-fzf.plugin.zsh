@@ -11,7 +11,7 @@ fi
 git_local_branches() {
     local lastcheckout=($(git log -g --grep-reflog 'checkout' --format="%gs" | sed -E 's/.*to (.*)/\1/' | awk '!x[$0]++' | tail -n+2))
     for branch in "${lastcheckout[@]}"; do
-        if git rev-parse --verify "${branch}" &> /dev/null; then
+        if git show-ref "refs/heads/${branch}" &> /dev/null; then
           echo "${SYMBOL_BRANCH}  ${branch}"
         fi
     done
